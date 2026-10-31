@@ -294,3 +294,81 @@ footer p {
     align-items: center;
     gap: 22px;
 }
+
+/* AJUSTE GENERAL DEL ENCABEZADO */
+.barra-superior {
+    height: auto;
+    min-height: 76px;
+    padding: 10px 24px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+.navegacion {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+/* LOGOTIPO MÁS PEQUEÑO Y CENTRADO */
+.marca {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.logo-imagen {
+    height: 42px;
+    max-width: 115px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* MENÚ VISIBLE Y EQUILIBRADO */
+.enlaces {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.enlaces a {
+    white-space: nowrap;
+}
+
+/* ESPACIO PARA LA BIENVENIDA */
+.portada {
+    position: relative;
+    padding: 90px 24px 80px;
+    clear: both;
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+@media (max-width: 700px) {
+    .barra-superior {
+        padding: 12px 16px;
+    }
+
+    .navegacion {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .enlaces {
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    .portada {
+        padding: 55px 18px 60px;
+    }
+}
