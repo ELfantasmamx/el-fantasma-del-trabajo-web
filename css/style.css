@@ -459,3 +459,22 @@ footer p {
         padding: 9px 12px;
     }
 }
+
+/* LOGOTIPO SIN CUADRO BLANCO */
+.marca {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+}
+
+/* LOGOTIPO MÁS GRANDE */
+.logo-imagen {
+    height: 85px;
+    max-width: 210px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    background: transparent;
+}
