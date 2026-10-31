@@ -372,3 +372,38 @@ footer p {
         padding: 55px 18px 60px;
     }
 }
+
+/* AJUSTE FINAL DEL LOGOTIPO */
+.logo-imagen {
+    height: 58px;
+    max-width: 160px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* BOTONES DE NAVEGACIÓN MÁS VISIBLES */
+.enlaces a {
+    color: #F7F8F4;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+.enlaces a:hover {
+    color: #173F35;
+    background-color: #A8B9A1;
+}
+
+/* ESPACIADO DEL MENÚ */
+.enlaces {
+    gap: 18px;
+}
+
+/* CONSERVAR LA IDENTIDAD VERDE */
+.barra-superior {
+    background-color: #173F35;
+}
