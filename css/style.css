@@ -407,3 +407,55 @@ footer p {
 .barra-superior {
     background-color: #173F35;
 }
+
+/* LOGOTIPO CON MAYOR PRESENCIA */
+.logo-imagen {
+    height: 72px;
+    max-width: 185px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* NAVEGACIÓN MÁS VISIBLE */
+.enlaces {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.enlaces a {
+    color: #173F35;
+    background-color: #A8B9A1;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 11px 17px;
+    border-radius: 9px;
+    border: 1px solid #DCE7D8;
+    transition: all 0.3s ease;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+.enlaces a:hover {
+    background-color: #F7F8F4;
+    color: #173F35;
+    transform: translateY(-2px);
+}
+
+/* EVITAR QUE EL ENCABEZADO SE DESBORDE */
+.navegacion {
+    gap: 20px;
+}
+
+/* AJUSTE PARA PANTALLAS PEQUEÑAS */
+@media (max-width: 700px) {
+    .logo-imagen {
+        height: 60px;
+        max-width: 160px;
+    }
+
+    .enlaces a {
+        font-size: 14px;
+        padding: 9px 12px;
+    }
+}
