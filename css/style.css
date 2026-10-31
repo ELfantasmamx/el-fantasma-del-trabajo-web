@@ -1,1 +1,264 @@
 
+/* ======================================
+   EL FANTASMA DEL TRABAJO
+   Identidad visual y estilos principales
+====================================== */
+
+:root {
+    --verde-bosque: #173F35;
+    --verde-azulado: #397466;
+    --verde-salvia: #A8B9A1;
+    --blanco-natural: #F7F8F4;
+    --blanco: #FFFFFF;
+    --texto: #263A32;
+    --texto-suave: #64766D;
+    --borde: #DCE5DC;
+}
+
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--blanco-natural);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* CONTENEDOR */
+
+.contenedor {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+/* BARRA SUPERIOR */
+
+.barra-superior {
+    height: 5px;
+    background: var(--verde-azulado);
+}
+
+/* NAVEGACIÓN */
+
+header {
+    background: var(--blanco-natural);
+    border-bottom: 1px solid var(--borde);
+}
+
+.navegacion {
+    min-height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.marca {
+    color: var(--verde-bosque);
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.marca small {
+    display: block;
+    color: var(--verde-azulado);
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.enlaces {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.enlaces a {
+    color: var(--texto-suave);
+    font-size: 14px;
+    transition: color .3s;
+}
+
+.enlaces a:hover {
+    color: var(--verde-azulado);
+}
+
+/* PRESENTACIÓN PRINCIPAL */
+
+.portada {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(
+            circle at 85% 35%,
+            rgba(168,185,161,.35),
+            transparent 32%
+        ),
+        var(--blanco-natural);
+}
+
+.portada-contenido {
+    max-width: 760px;
+    padding: 100px 0;
+}
+
+.etiqueta {
+    color: var(--verde-azulado);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: var(--verde-bosque);
+    font-size: clamp(38px, 6vw, 66px);
+    line-height: 1.12;
+    margin: 22px 0;
+}
+
+h1 span {
+    color: var(--verde-azulado);
+}
+
+.portada p {
+    max-width: 620px;
+    color: var(--texto-suave);
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* BOTONES */
+
+.boton {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+.boton-principal {
+    background: var(--verde-bosque);
+    color: var(--blanco);
+}
+
+.boton-principal:hover {
+    background: var(--verde-azulado);
+    transform: translateY(-3px);
+}
+
+.boton-secundario {
+    border: 1px solid var(--verde-azulado);
+    color: var(--verde-bosque);
+    margin-left: 10px;
+}
+
+.boton-secundario:hover {
+    background: var(--verde-salvia);
+}
+
+/* SECCIONES */
+
+.seccion {
+    padding: 90px 0;
+}
+
+.seccion-clara {
+    background: var(--blanco);
+}
+
+.titulo-seccion {
+    color: var(--verde-bosque);
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.descripcion {
+    color: var(--texto-suave);
+    max-width: 700px;
+}
+
+/* TARJETAS */
+
+.tarjeta {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(23,63,53,.09);
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background: var(--verde-bosque);
+    color: var(--blanco-natural);
+    padding: 45px 0;
+}
+
+footer p {
+    color: var(--verde-salvia);
+    font-size: 13px;
+}
+
+/* DISEÑO RESPONSIVO */
+
+@media (max-width: 768px) {
+
+    .navegacion {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .enlaces {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .portada {
+        min-height: 480px;
+    }
+
+    .portada-contenido {
+        padding: 70px 0;
+    }
+
+    .boton-secundario {
+        margin: 10px 0 0;
+    }
+
+    .seccion {
+        padding: 65px 0;
+    }
+}
+
