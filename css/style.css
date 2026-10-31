@@ -261,4 +261,15 @@ footer p {
         padding: 65px 0;
     }
 }
+/* LOGOTIPO OFICIAL */
+.logo-imagen {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
 
+.marca {
+    display: flex;
+    align-items: center;
+}
