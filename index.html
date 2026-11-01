@@ -753,6 +753,51 @@ function mostrarResultadosProfundos() {
             `;
         }
     });
+        }
+    });
+
+    // GENERAR GRAFICA DE LAS CUATRO DIMENSIONES
+    const canvas = document.getElementById("grafica-dimensiones");
+
+    if (canvas) {
+        const ctx = canvas.getContext("2d");
+
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: dimensiones.map(dimension => dimension.nombre),
+                datasets: [{
+                    label: "Puntuación",
+                    data: puntuaciones,
+                    backgroundColor: [
+                        "#173F35",
+                        "#397466",
+                        "#A8B9A1",
+                        "#6D927F"
+                    ],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 20,
+                        ticks: {
+                            stepSize: 5
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
 
     interpretacion.innerHTML = `
         <h3>Panorama general</h3>
@@ -777,6 +822,7 @@ botonReiniciarProfundo.addEventListener("click", () => {
     rellenoProfundo.style.width = "0%";
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
 
