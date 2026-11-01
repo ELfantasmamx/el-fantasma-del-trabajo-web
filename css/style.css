@@ -664,3 +664,85 @@ footer p {
         bottom: 5px;
     }
 }
+
+/* =================================
+   PARTÍCULAS AMBIENTALES
+================================= */
+
+.particulas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.particulas span {
+    position: absolute;
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #a8b9a1;
+    opacity: 0.65;
+    box-shadow: 0 0 12px rgba(168, 185, 161, 0.7);
+    animation: flotar-particula 6s ease-in-out infinite;
+}
+
+.particulas span:nth-child(1) {
+    top: 12%;
+    left: 15%;
+}
+
+.particulas span:nth-child(2) {
+    top: 28%;
+    left: 82%;
+    animation-delay: 1s;
+}
+
+.particulas span:nth-child(3) {
+    top: 55%;
+    left: 12%;
+    animation-delay: 2s;
+}
+
+.particulas span:nth-child(4) {
+    top: 70%;
+    left: 85%;
+    animation-delay: 3s;
+}
+
+.particulas span:nth-child(5) {
+    top: 18%;
+    left: 55%;
+    animation-delay: 1.5s;
+}
+
+.particulas span:nth-child(6) {
+    top: 82%;
+    left: 40%;
+    animation-delay: 2.5s;
+}
+
+.particulas span:nth-child(7) {
+    top: 43%;
+    left: 92%;
+    animation-delay: 4s;
+}
+
+.particulas span:nth-child(8) {
+    top: 90%;
+    left: 68%;
+    animation-delay: 3.5s;
+}
+
+@keyframes flotar-particula {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: translateY(-22px) scale(1.5);
+        opacity: 0.85;
+    }
+}
