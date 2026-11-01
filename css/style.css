@@ -1053,3 +1053,66 @@ footer p {
         width: 100%;
     }
 }
+/* RESULTADOS DEL CUESTIONARIO PROFUNDO */
+
+#interpretacion-profunda {
+    background: #173F35;
+    color: #F7F8F4;
+    padding: 28px;
+    border-radius: 18px;
+    margin: 25px 0;
+}
+
+#interpretacion-profunda h3 {
+    color: #A8B9A1;
+    margin-bottom: 12px;
+}
+
+#resultados-dimensiones {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.resultado-dimension {
+    background: #F1F5EF;
+    border: 1px solid #A8B9A1;
+    border-radius: 16px;
+    padding: 22px;
+    color: #173F35;
+    box-shadow: 0 5px 16px rgba(23, 63, 53, 0.08);
+}
+
+.resultado-dimension h3 {
+    color: #285C4D;
+    margin-bottom: 12px;
+}
+
+.resultado-dimension p {
+    line-height: 1.6;
+}
+
+#recomendaciones-profundas {
+    background: #E5EEE5;
+    padding: 25px;
+    border-radius: 18px;
+    color: #173F35;
+    margin-top: 25px;
+}
+
+#recomendaciones-profundas h4 {
+    color: #285C4D;
+    margin-top: 18px;
+}
+
+#recomendaciones-profundas li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+@media (max-width: 650px) {
+    #resultados-dimensiones {
+        grid-template-columns: 1fr;
+    }
+}
