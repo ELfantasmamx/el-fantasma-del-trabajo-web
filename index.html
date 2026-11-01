@@ -532,7 +532,248 @@ botonReiniciar.addEventListener("click", () => {
     rellenoProgreso.style.width = "0%";
 });
 </script>
+<script>
+const preguntasProfundas = [
+    "Después de terminar mi jornada, sigo pensando en problemas que ocurrieron durante el trabajo.",
+    "Me cuesta dejar de preocuparme por las tareas que quedaron pendientes.",
+    "Durante mi tiempo libre, imagino situaciones relacionadas con mis responsabilidades laborales.",
+    "Repaso mentalmente conversaciones o conflictos que tuve en el trabajo.",
+    "Siento que mi mente continúa trabajando incluso cuando ya terminó mi jornada.",
 
+    "Puedo decidir libremente cómo organizar mi tiempo después del trabajo.",
+    "Siento que las responsabilidades laborales limitan mis actividades personales.",
+    "Puedo establecer límites cuando alguien intenta contactarme por motivos laborales fuera de mi horario.",
+    "Me resulta difícil dedicar tiempo a mis intereses personales debido al trabajo.",
+    "Tengo la libertad de elegir cuándo y cómo realizar actividades durante mi tiempo libre.",
+
+    "Después de trabajar, consigo relajarme física y mentalmente.",
+    "Siento tensión o preocupación relacionada con el trabajo durante mis momentos de descanso.",
+    "Realizo actividades que me ayudan a recuperar energía después de mi jornada.",
+    "Me cuesta descansar porque sigo pensando en mis responsabilidades.",
+    "Consigo sentir tranquilidad cuando me encuentro fuera del entorno laboral.",
+
+    "Dedico tiempo a aprender cosas nuevas que no están relacionadas con mi trabajo.",
+    "Realizo actividades personales que me producen satisfacción.",
+    "Durante mis días libres, busco experiencias que representen un reto positivo para mí.",
+    "Mantengo actividades recreativas que contribuyen a mi desarrollo personal.",
+    "Siento que mi vida fuera del trabajo me permite desarrollar otras habilidades e intereses."
+];
+
+const respuestasProfundas = [
+    "Nunca",
+    "Rara vez",
+    "A veces",
+    "Frecuentemente",
+    "Siempre"
+];
+
+// Preguntas positivas: una frecuencia mayor representa
+// mejores recursos de recuperación, por lo que se invierte.
+const preguntasInversas = [
+    5, 7, 9,
+    10, 12, 14,
+    15, 16, 17, 18, 19
+];
+
+const dimensiones = [
+    { nombre: "Desconexión mental", inicio: 0 },
+    { nombre: "Control del tiempo libre", inicio: 5 },
+    { nombre: "Relajación", inicio: 10 },
+    { nombre: "Actividades enriquecedoras", inicio: 15 }
+];
+
+let respuestasProfundasSeleccionadas = Array(20).fill(null);
+let preguntaProfundaActual = 0;
+
+const inicioProfundo = document.getElementById("inicio-profundo");
+const contenidoProfundo = document.getElementById("contenido-profundo");
+const resultadoProfundo = document.getElementById("resultado-profundo");
+
+const botonComenzarProfundo = document.getElementById("comenzar-profundo");
+const botonAnteriorProfundo = document.getElementById("anterior-profundo");
+const botonSiguienteProfundo = document.getElementById("siguiente-profundo");
+const botonReiniciarProfundo = document.getElementById("reiniciar-profundo");
+
+const preguntaTextoProfundo = document.getElementById("pregunta-profunda");
+const opcionesProfundas = document.getElementById("opciones-profundas");
+const numeroPreguntaProfunda = document.getElementById("numero-pregunta-profunda");
+const porcentajeProfundo = document.getElementById("porcentaje-progreso-profundo");
+const rellenoProfundo = document.getElementById("relleno-progreso-profundo");
+
+botonComenzarProfundo.addEventListener("click", () => {
+    inicioProfundo.hidden = true;
+    resultadoProfundo.hidden = true;
+    contenidoProfundo.hidden = false;
+    mostrarPreguntaProfunda();
+});
+
+function mostrarPreguntaProfunda() {
+    preguntaTextoProfundo.textContent =
+        preguntasProfundas[preguntaProfundaActual];
+
+    numeroPreguntaProfunda.textContent =
+        `Pregunta ${preguntaProfundaActual + 1} de 20`;
+
+    const progreso = (preguntaProfundaActual / 20) * 100;
+
+    porcentajeProfundo.textContent = `${Math.round(progreso)}%`;
+    rellenoProfundo.style.width = `${progreso}%`;
+
+    opcionesProfundas.innerHTML = "";
+
+    respuestasProfundas.forEach((respuesta, indice) => {
+        const boton = document.createElement("button");
+
+        boton.type = "button";
+        boton.className = "opcion-test";
+        boton.textContent = respuesta;
+
+        if (respuestasProfundasSeleccionadas[preguntaProfundaActual] === indice) {
+            boton.classList.add("seleccionada");
+        }
+
+        boton.addEventListener("click", () => {
+            respuestasProfundasSeleccionadas[preguntaProfundaActual] = indice;
+            mostrarPreguntaProfunda();
+        });
+
+        opcionesProfundas.appendChild(boton);
+    });
+
+    botonAnteriorProfundo.disabled = preguntaProfundaActual === 0;
+
+    botonSiguienteProfundo.disabled =
+        respuestasProfundasSeleccionadas[preguntaProfundaActual] === null;
+
+    botonSiguienteProfundo.textContent =
+        preguntaProfundaActual === 19 ? "Ver resultados" : "Siguiente";
+}
+
+botonSiguienteProfundo.addEventListener("click", () => {
+    if (respuestasProfundasSeleccionadas[preguntaProfundaActual] === null) return;
+
+    if (preguntaProfundaActual < 19) {
+        preguntaProfundaActual++;
+        mostrarPreguntaProfunda();
+    } else {
+        mostrarResultadosProfundos();
+    }
+});
+
+botonAnteriorProfundo.addEventListener("click", () => {
+    if (preguntaProfundaActual > 0) {
+        preguntaProfundaActual--;
+        mostrarPreguntaProfunda();
+    }
+});
+
+function mostrarResultadosProfundos() {
+    const puntuaciones = dimensiones.map(dimension => {
+        let total = 0;
+
+        for (let i = dimension.inicio; i < dimension.inicio + 5; i++) {
+            const respuesta = respuestasProfundasSeleccionadas[i];
+            const valor = preguntasInversas.includes(i) ? 4 - respuesta : respuesta;
+            total += valor;
+        }
+
+        return total;
+    });
+
+    contenidoProfundo.hidden = true;
+    resultadoProfundo.hidden = false;
+
+    porcentajeProfundo.textContent = "100%";
+    rellenoProfundo.style.width = "100%";
+
+    const resultados = document.getElementById("resultados-dimensiones");
+    const interpretacion = document.getElementById("interpretacion-profunda");
+    const recomendaciones = document.getElementById("recomendaciones-profundas");
+
+    resultados.innerHTML = "";
+    recomendaciones.innerHTML = "";
+
+    let totalGeneral = 0;
+
+    dimensiones.forEach((dimension, indice) => {
+        const puntuacion = puntuaciones[indice];
+        totalGeneral += puntuacion;
+
+        let nivel;
+        let descripcion;
+
+        if (puntuacion <= 6) {
+            nivel = "Recursos favorables";
+            descripcion = "Tus respuestas sugieren recursos que favorecen esta dimensión de tu recuperación.";
+        } else if (puntuacion <= 13) {
+            nivel = "Aspectos por fortalecer";
+            descripcion = "Tus respuestas sugieren algunas dificultades que podrías explorar y atender.";
+        } else {
+            nivel = "Mayor dificultad percibida";
+            descripcion = "Tus respuestas reflejan dificultades frecuentes en esta dimensión que merecen atención.";
+        }
+
+        resultados.innerHTML += `
+            <div class="resultado-dimension">
+                <h3>${dimension.nombre}</h3>
+                <p><strong>${nivel}</strong></p>
+                <p>${descripcion}</p>
+                <p>Puntuación: ${puntuacion} de 20</p>
+            </div>
+        `;
+
+        const consejos = [
+            [
+                "Establece un ritual para cerrar mentalmente tu jornada.",
+                "Evita revisar pendientes laborales durante tus descansos."
+            ],
+            [
+                "Define horarios para tus actividades personales.",
+                "Establece límites claros para las comunicaciones laborales."
+            ],
+            [
+                "Incorpora pausas y actividades de relajación.",
+                "Reserva momentos para descansar sin obligaciones."
+            ],
+            [
+                "Recupera actividades recreativas que disfrutes.",
+                "Dedica tiempo a aprender o explorar intereses personales."
+            ]
+        ];
+
+        if (puntuacion > 6) {
+            recomendaciones.innerHTML += `
+                <h4>${dimension.nombre}</h4>
+                <ul>
+                    ${consejos[indice].map(consejo => `<li>${consejo}</li>`).join("")}
+                </ul>
+            `;
+        }
+    });
+
+    interpretacion.innerHTML = `
+        <h3>Panorama general</h3>
+        <p>Tu puntuación global es de <strong>${totalGeneral} de 80 puntos</strong>.</p>
+        <p>Los resultados permiten identificar las dimensiones en las que percibes mayores dificultades y aquellas donde reconoces recursos favorables.</p>
+    `;
+
+    recomendaciones.innerHTML += `
+        <p><strong>Importante:</strong> Este cuestionario es una herramienta orientativa de autoconocimiento elaborada para el proyecto. No constituye una prueba psicométrica validada ni permite establecer diagnósticos.</p>
+    `;
+}
+
+botonReiniciarProfundo.addEventListener("click", () => {
+    respuestasProfundasSeleccionadas = Array(20).fill(null);
+    preguntaProfundaActual = 0;
+
+    resultadoProfundo.hidden = true;
+    contenidoProfundo.hidden = true;
+    inicioProfundo.hidden = false;
+
+    porcentajeProfundo.textContent = "0%";
+    rellenoProfundo.style.width = "0%";
+});
+</script>
 </body>
 </html>
 
