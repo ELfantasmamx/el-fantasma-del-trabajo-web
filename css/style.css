@@ -1136,3 +1136,40 @@ footer p {
     width: 100% !important;
     height: 320px !important;
 }
+/* INTRODUCCIÓN DE BIENESTAR */
+.introduccion-bienestar {
+    max-width: 850px;
+    margin: 20px auto 35px;
+    text-align: center;
+    line-height: 1.9;
+    color: #52665D;
+    font-size: 1.05rem;
+}
+
+/* TARJETAS DE BIENESTAR */
+#bienestar .tarjetas {
+    align-items: stretch;
+    gap: 25px;
+}
+
+#bienestar .tarjeta {
+    padding: 30px;
+    min-height: 280px;
+    line-height: 1.8;
+}
+
+#bienestar .tarjeta h3 {
+    margin-bottom: 18px;
+    color: #285C4D;
+}
+
+#bienestar .tarjeta p {
+    line-height: 1.85;
+    color: #52665D;
+}
+
+@media (max-width: 650px) {
+    #bienestar .tarjeta {
+        min-height: auto;
+    }
+}
