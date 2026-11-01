@@ -746,3 +746,38 @@ footer p {
         opacity: 0.85;
     }
 }
+
+/* =================================
+   EXPRESIÓN DEL FANTASMA
+================================= */
+
+.fantasma-flotante::before {
+    content: "";
+    position: absolute;
+    top: 103px;
+    left: 50%;
+    width: 19px;
+    height: 10px;
+    transform: translateX(-50%);
+    border-bottom: 2px solid #397466;
+    border-radius: 0 0 50% 50%;
+}
+
+/* Pequeños detalles de color en las mejillas */
+
+.fantasma-flotante {
+    background-image:
+        radial-gradient(
+            ellipse,
+            rgba(168, 185, 161, 0.45) 0%,
+            transparent 70%
+        ),
+        linear-gradient(
+            145deg,
+            #f7f8f4 10%,
+            #dce7dc 100%
+        );
+    background-size: 25px 13px, 100% 100%;
+    background-position: 25px 105px, center;
+    background-repeat: no-repeat;
+}
