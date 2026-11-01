@@ -282,6 +282,195 @@
         <p>No arrastres hoy, el peso del mañana.</p>
     </footer>
 
+<script>
+const preguntasRapidas = [
+    "Después de terminar mi jornada, sigo pensando en asuntos pendientes del trabajo.",
+    "Me cuesta dejar de revisar mensajes, correos o notificaciones laborales.",
+    "Aunque estoy descansando, siento que debería estar haciendo algo relacionado con el trabajo.",
+    "Las preocupaciones laborales afectan mi tranquilidad durante mi tiempo libre.",
+    "Me resulta difícil disfrutar de mis actividades personales sin pensar en el trabajo.",
+    "Siento que necesito mucho tiempo para recuperarme mentalmente después de trabajar.",
+    "Me cuesta establecer límites entre mis responsabilidades laborales y mi vida personal.",
+    "Cuando termina mi jornada, consigo dedicar tiempo a actividades que me hacen sentir bien."
+];
+
+const respuestasRapidas = [
+    "Nunca",
+    "Rara vez",
+    "A veces",
+    "Frecuentemente",
+    "Siempre"
+];
+
+let respuestasSeleccionadas = Array(8).fill(null);
+let preguntaActual = 0;
+
+const inicioRapido = document.getElementById("inicio-rapido");
+const contenidoRapido = document.getElementById("contenido-rapido");
+const resultadoRapido = document.getElementById("resultado-rapido");
+
+const preguntaTexto = document.getElementById("pregunta-rapida");
+const opcionesContenedor = document.getElementById("opciones-rapidas");
+const numeroPregunta = document.getElementById("numero-pregunta");
+const porcentajeProgreso = document.getElementById("porcentaje-progreso");
+const rellenoProgreso = document.getElementById("relleno-progreso");
+
+const botonComenzar = document.getElementById("comenzar-rapido");
+const botonAnterior = document.getElementById("anterior-rapido");
+const botonSiguiente = document.getElementById("siguiente-rapido");
+const botonReiniciar = document.getElementById("reiniciar-rapido");
+
+botonComenzar.addEventListener("click", () => {
+    inicioRapido.hidden = true;
+    resultadoRapido.hidden = true;
+    contenidoRapido.hidden = false;
+    mostrarPregunta();
+});
+
+function mostrarPregunta() {
+    preguntaTexto.textContent = preguntasRapidas[preguntaActual];
+
+    numeroPregunta.textContent =
+        `Pregunta ${preguntaActual + 1} de 8`;
+
+    const progreso = (preguntaActual / 8) * 100;
+
+    porcentajeProgreso.textContent = `${Math.round(progreso)}%`;
+    rellenoProgreso.style.width = `${progreso}%`;
+
+    opcionesContenedor.innerHTML = "";
+
+    respuestasRapidas.forEach((respuesta, indice) => {
+        const boton = document.createElement("button");
+
+        boton.type = "button";
+        boton.className = "opcion-test";
+        boton.textContent = respuesta;
+
+        if (respuestasSeleccionadas[preguntaActual] === indice) {
+            boton.classList.add("seleccionada");
+        }
+
+        boton.addEventListener("click", () => {
+            respuestasSeleccionadas[preguntaActual] = indice;
+
+            mostrarPregunta();
+        });
+
+        opcionesContenedor.appendChild(boton);
+    });
+
+    botonAnterior.disabled = preguntaActual === 0;
+
+    botonSiguiente.disabled =
+        respuestasSeleccionadas[preguntaActual] === null;
+
+    botonSiguiente.textContent =
+        preguntaActual === 7 ? "Ver resultados" : "Siguiente";
+}
+
+botonSiguiente.addEventListener("click", () => {
+    if (respuestasSeleccionadas[preguntaActual] === null) return;
+
+    if (preguntaActual < 7) {
+        preguntaActual++;
+        mostrarPregunta();
+    } else {
+        mostrarResultados();
+    }
+});
+
+botonAnterior.addEventListener("click", () => {
+    if (preguntaActual > 0) {
+        preguntaActual--;
+        mostrarPregunta();
+    }
+});
+
+function mostrarResultados() {
+    const puntuacion = respuestasSeleccionadas.reduce(
+        (total, respuesta, indice) => {
+            // La última pregunta expresa una capacidad protectora.
+            const valor = indice === 7 ? 4 - respuesta : respuesta;
+            return total + valor;
+        },
+        0
+    );
+
+    contenidoRapido.hidden = true;
+    resultadoRapido.hidden = false;
+
+    porcentajeProgreso.textContent = "100%";
+    rellenoProgreso.style.width = "100%";
+
+    let titulo;
+    let interpretacion;
+    let recomendaciones;
+
+    if (puntuacion <= 7) {
+        titulo = "Tu desconexión parece favorable";
+        interpretacion =
+            "Tus respuestas sugieren que generalmente consigues " +
+            "separar tus responsabilidades laborales de tu tiempo personal. " +
+            "Conviene mantener los hábitos que favorecen tu descanso.";
+
+        recomendaciones = [
+            "Conserva horarios definidos para finalizar tu jornada.",
+            "Dedica tiempo a actividades recreativas y personales.",
+            "Mantén espacios libres de notificaciones laborales."
+        ];
+
+    } else if (puntuacion <= 15) {
+        titulo = "Hay aspectos que puedes fortalecer";
+        interpretacion =
+            "Tus respuestas reflejan algunas dificultades para " +
+            "desconectar mentalmente del trabajo. Identificar qué " +
+            "situaciones mantienen tu atención laboral puede ayudarte " +
+            "a construir mejores hábitos de recuperación.";
+
+        recomendaciones = [
+            "Establece un pequeño ritual para cerrar tu jornada.",
+            "Reduce gradualmente la revisión de mensajes laborales fuera de horario.",
+            "Reserva momentos para actividades que disfrutes."
+        ];
+
+    } else {
+        titulo = "Tu desconexión merece atención";
+        interpretacion =
+            "Tus respuestas indican que las preocupaciones laborales " +
+            "podrían estar ocupando una parte importante de tu tiempo " +
+            "personal. Es conveniente explorar qué factores dificultan " +
+            "tu descanso y qué límites podrías fortalecer.";
+
+        recomendaciones = [
+            "Identifica qué pensamientos laborales aparecen con mayor frecuencia.",
+            "Establece límites realistas para las comunicaciones fuera del horario.",
+            "Practica actividades de relajación y recuperación.",
+            "Si estas dificultades generan malestar persistente, considera buscar orientación profesional."
+        ];
+    }
+
+    document.getElementById("interpretacion-rapida").innerHTML =
+        `<strong>${titulo}</strong><br><br>${interpretacion}`;
+
+    document.getElementById("recomendaciones-rapidas").innerHTML =
+        `<h4>Algunas recomendaciones para ti</h4>
+        <ul>${recomendaciones.map(item => `<li>${item}</li>`).join("")}</ul>
+        <p><strong>Resultado orientativo:</strong> ${puntuacion} de 32 puntos.</p>`;
+}
+
+botonReiniciar.addEventListener("click", () => {
+    respuestasSeleccionadas = Array(8).fill(null);
+    preguntaActual = 0;
+
+    resultadoRapido.hidden = true;
+    contenidoRapido.hidden = true;
+    inicioRapido.hidden = false;
+
+    rellenoProgreso.style.width = "0%";
+});
+</script>
+
 </body>
 </html>
 
