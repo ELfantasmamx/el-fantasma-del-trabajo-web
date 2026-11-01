@@ -478,3 +478,189 @@ footer p {
     display: block;
     background: transparent;
 }
+
+/* =================================
+   ESCENA ANIMADA: FANTASMA Y RÍO
+================================= */
+
+.portada {
+    position: relative;
+    overflow: hidden;
+}
+
+.portada-contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.escena-portada {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 380px;
+    pointer-events: none;
+}
+
+/* Fantasmita */
+
+.fantasma-flotante {
+    position: absolute;
+    width: 145px;
+    height: 175px;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 75px 75px 35px 35px;
+    background: linear-gradient(
+        145deg,
+        #f7f8f4 10%,
+        #dce7dc 100%
+    );
+    box-shadow:
+        0 15px 35px rgba(23, 63, 53, 0.13),
+        inset -10px -8px 20px rgba(168, 185, 161, 0.25);
+    animation: flotar-fantasma 4s ease-in-out infinite;
+}
+
+/* Ondulación inferior del fantasma */
+
+.fantasma-flotante::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background:
+        radial-gradient(
+            circle at 25% 0,
+            transparent 14px,
+            #e8eee7 15px
+        );
+    background-size: 50px 30px;
+    background-repeat: repeat-x;
+}
+
+/* Ojos */
+
+.ojo {
+    position: absolute;
+    top: 72px;
+    width: 12px;
+    height: 17px;
+    border-radius: 50%;
+    background: #173f35;
+}
+
+.ojo-izquierdo {
+    left: 45px;
+}
+
+.ojo-derecho {
+    right: 45px;
+}
+
+/* Río */
+
+.rio-escena {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    height: 105px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: linear-gradient(
+        180deg,
+        rgba(57, 116, 102, 0.15),
+        rgba(57, 116, 102, 0.45)
+    );
+    filter: blur(1px);
+}
+
+.onda {
+    position: absolute;
+    width: 200%;
+    height: 65px;
+    left: -50%;
+    border-top: 3px solid rgba(247, 248, 244, 0.65);
+    border-radius: 50%;
+    animation: ondular-rio 7s linear infinite;
+}
+
+.onda-uno {
+    top: 15px;
+}
+
+.onda-dos {
+    top: 35px;
+    animation-duration: 9s;
+    animation-direction: reverse;
+}
+
+.onda-tres {
+    top: 55px;
+    animation-duration: 11s;
+}
+
+/* Animaciones */
+
+@keyframes flotar-fantasma {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -22px);
+    }
+}
+
+@keyframes ondular-rio {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(25%);
+    }
+}
+
+/* Adaptación a celulares */
+
+@media (max-width: 768px) {
+    .escena-portada {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        height: 270px;
+        margin-top: 10px;
+    }
+
+    .fantasma-flotante {
+        width: 115px;
+        height: 140px;
+        top: 15px;
+    }
+
+    .ojo {
+        top: 57px;
+    }
+
+    .ojo-izquierdo {
+        left: 35px;
+    }
+
+    .ojo-derecho {
+        right: 35px;
+    }
+
+    .rio-escena {
+        bottom: 5px;
+    }
+}
