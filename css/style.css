@@ -1116,3 +1116,23 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+/* GRAFICA DE RESULTADOS */
+
+.contenedor-grafica {
+    background: #F1F5EF;
+    border: 1px solid #A8B9A1;
+    border-radius: 18px;
+    padding: 25px;
+    margin: 30px 0;
+    color: #173F35;
+}
+
+.contenedor-grafica h3 {
+    color: #285C4D;
+    margin-bottom: 20px;
+}
+
+.contenedor-grafica canvas {
+    width: 100% !important;
+    height: 320px !important;
+}
