@@ -5,14 +5,19 @@
 ====================================== */
 
 :root {
-    --verde-bosque: #173F35;
+    /* Fondos */
+    --verde-bosque: #071B14;
     --verde-azulado: #397466;
     --verde-salvia: #A8B9A1;
-    --blanco-natural: #F7F8F4;
+    --blanco-natural: #0B241A;
+
+    /* Textos */
     --blanco: #FFFFFF;
-    --texto: #263A32;
-    --texto-suave: #64766D;
-    --borde: #DCE5DC;
+    --texto: #F2F5EF;
+    --texto-suave: #C3D0C6;
+
+    /* Detalles */
+    --borde: rgba(168, 185, 161, 0.22);
 }
 
 /* CONFIGURACIÓN GENERAL */
