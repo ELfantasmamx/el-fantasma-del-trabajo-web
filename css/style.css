@@ -324,12 +324,17 @@ footer p {
     background: transparent;
 }
 
-.logo-imagen {
-    height: 42px;
-    max-width: 115px;
+.logo-imagen .logo-imagen {
+    height: 76px;
     width: auto;
+    max-width: 220px;
     object-fit: contain;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-imagen:hover {
+    transform: scale(1.05);
 }
 
 /* MENÚ VISIBLE Y EQUILIBRADO */
