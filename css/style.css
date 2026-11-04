@@ -1396,3 +1396,47 @@ footer p+p { color:var(--muted); letter-spacing:1px; }
 }
 .has-ghost-cursor .ghost-cursor { opacity:.9; }
 @media (hover:none), (pointer:coarse) { .ghost-cursor { display:none; } }
+/* =================================
+   AJUSTES VISUALES FINALES
+   ================================= */
+
+/* LOGO OFICIAL */
+.barra-superior .marca {
+    background: #FFFFFF !important;
+    padding: 12px 18px !important;
+    border-radius: 14px !important;
+    min-width: 150px;
+    min-height: 120px;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.barra-superior .logo-imagen {
+    height: 110px !important;
+    width: auto !important;
+    max-width: 250px !important;
+    object-fit: contain;
+}
+
+/* ENCABEZADO */
+.barra-superior {
+    background: #071B14 !important;
+}
+
+.barra-superior .navegacion {
+    min-height: 135px !important;
+}
+
+/* MENÚ */
+.barra-superior .enlaces a {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,0.35) !important;
+    font-weight: 700 !important;
+    padding: 12px 18px !important;
+}
+
+.barra-superior .enlaces a:hover {
+    color: #071B14 !important;
+    background: #A5E6BD !important;
+}
