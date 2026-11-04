@@ -60,13 +60,15 @@ button {
 
 /* NAVEGACIÓN */
 
+/* NAVEGACIÓN */
+
 header {
-    background: var(--blanco-natural);
-    border-bottom: 1px solid var(--borde);
+    background: #071b14;
+    border-bottom: 1px solid rgba(165, 230, 189, 0.18);
 }
 
 .navegacion {
-    min-height: 85px;
+    min-height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,7 +76,7 @@ header {
 }
 
 .marca {
-    color: var(--verde-bosque);
+    color: #F2F5EF;
     font-size: 17px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -82,7 +84,7 @@ header {
 
 .marca small {
     display: block;
-    color: var(--verde-azulado);
+    color: #A5E6BD;
     font-size: 9px;
     letter-spacing: 3px;
 }
@@ -94,13 +96,15 @@ header {
 }
 
 .enlaces a {
-    color: var(--texto-suave);
+    color: #F2F5EF;
     font-size: 14px;
-    transition: color .3s;
+    font-weight: 600;
+    transition: color .3s, transform .3s;
 }
 
 .enlaces a:hover {
-    color: var(--verde-azulado);
+    color: #A5E6BD;
+    transform: translateY(-2px);
 }
 
 /* PRESENTACIÓN PRINCIPAL */
