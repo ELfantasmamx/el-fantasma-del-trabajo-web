@@ -1648,3 +1648,58 @@ footer p+p { color:var(--muted); letter-spacing:1px; }
         top: -21px;
     }
 }
+/* ==========================================
+   CORRECCIÓN DE CONTRASTE EN CUESTIONARIOS
+========================================== */
+
+/* Textos generales */
+#cuestionario-rapido,
+#cuestionario-profundo {
+    color: #173F35;
+}
+
+#cuestionario-rapido h1,
+#cuestionario-rapido h2,
+#cuestionario-rapido h3,
+#cuestionario-rapido p,
+#cuestionario-rapido label,
+#cuestionario-profundo h1,
+#cuestionario-profundo h2,
+#cuestionario-profundo h3,
+#cuestionario-profundo p,
+#cuestionario-profundo label {
+    color: #173F35;
+}
+
+/* Preguntas y opciones */
+#cuestionario-rapido button,
+#cuestionario-profundo button,
+#cuestionario-rapido .opcion,
+#cuestionario-profundo .opcion {
+    color: #FFFFFF;
+    background: #285C4D;
+    border: 1px solid #285C4D;
+}
+
+/* Botones al pasar el cursor */
+#cuestionario-rapido button:hover,
+#cuestionario-profundo button:hover {
+    background: #173F35;
+    color: #FFFFFF;
+}
+
+/* Campos de respuesta */
+#cuestionario-rapido input,
+#cuestionario-profundo input,
+#cuestionario-rapido textarea,
+#cuestionario-profundo textarea {
+    color: #173F35;
+    background: #FFFFFF;
+    border: 1px solid #A8B9A1;
+}
+
+/* Textos secundarios */
+#cuestionario-rapido .pantalla-test,
+#cuestionario-profundo .pantalla-test {
+    color: #173F35;
+}
