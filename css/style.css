@@ -1269,3 +1269,488 @@ footer p + p {
     }
 }
 
+/* ==========================================
+   EL PROYECTO — IDENTIDAD INSTITUCIONAL
+   ========================================== */
+
+.proyecto-completo {
+    padding: 90px 7%;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 8% 12%, rgba(168,185,161,.20), transparent 35%),
+        #ffffff;
+}
+
+.proyecto-completo h2 {
+    color: #173F35;
+    font-family: Georgia, serif;
+    line-height: 1.2;
+}
+
+.proyecto-completo p {
+    color: #52665D;
+    line-height: 1.85;
+}
+
+.etiqueta-seccion {
+    display: inline-block;
+    color: #397466;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+/* 01. IDENTIDAD */
+
+.identidad-proyecto {
+    position: relative;
+    padding: 55px;
+    border-radius: 28px;
+    background: linear-gradient(125deg, #173F35, #24594B);
+    overflow: hidden;
+    color: white;
+}
+
+.identidad-proyecto::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    right: -150px;
+    bottom: -250px;
+    border: 1px solid rgba(168,185,161,.35);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 25px rgba(168,185,161,.05),
+        0 0 0 55px rgba(168,185,161,.05),
+        0 0 0 85px rgba(168,185,161,.04);
+    pointer-events: none;
+}
+
+.identidad-proyecto .etiqueta-seccion {
+    color: #A8B9A1;
+}
+
+.identidad-contenido {
+    display: grid;
+    grid-template-columns: minmax(220px, .8fr) 1.2fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.identidad-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 260px;
+    padding: 25px;
+    border-radius: 24px;
+    background: rgba(255,255,255,.96);
+}
+
+.identidad-logo img {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    max-height: 260px;
+    object-fit: contain;
+}
+
+.identidad-texto {
+    position: relative;
+    z-index: 1;
+}
+
+.texto-superior {
+    color: #A8B9A1;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.identidad-texto h2 {
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    margin: 15px 0 22px;
+}
+
+.identidad-texto p {
+    color: rgba(255,255,255,.83);
+    max-width: 650px;
+}
+
+/* BLOQUES INSTITUCIONALES */
+
+.bloque-institucional {
+    padding: 105px 3%;
+    position: relative;
+}
+
+.encabezado-institucional {
+    max-width: 760px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.encabezado-institucional h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 18px;
+}
+
+.encabezado-institucional p {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* 02. QUIÉNES SOMOS */
+
+.quienes-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.quienes-destacado {
+    position: relative;
+    padding: 45px;
+    border-radius: 25px;
+    background: #EAF0E8;
+    overflow: hidden;
+}
+
+.numero-decorativo {
+    display: block;
+    color: rgba(57,116,102,.22);
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.quienes-destacado h3 {
+    position: relative;
+    z-index: 1;
+    color: #173F35;
+    font-family: Georgia, serif;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1.35;
+}
+
+.quienes-descripcion p {
+    margin-bottom: 18px;
+}
+
+/* 03. OBJETIVO GENERAL */
+
+.objetivo-institucional {
+    position: relative;
+    padding: 65px;
+    border-radius: 28px;
+    background: #EAF0E8;
+    overflow: hidden;
+}
+
+.objetivo-contenido {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: start;
+    gap: 25px;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.objetivo-icono {
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #173F35;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.objetivo-contenido h2 {
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    margin: 0 0 18px;
+}
+
+.objetivo-contenido p {
+    font-size: 1.08rem;
+    max-width: 900px;
+}
+
+/* 04. HISTORIA */
+
+.historia-institucional {
+    background: linear-gradient(180deg, #ffffff, #F3F6F1);
+    border-radius: 28px;
+}
+
+.historia-linea {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    position: relative;
+}
+
+.historia-linea::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, #A8B9A1, #397466);
+}
+
+.historia-paso {
+    position: relative;
+    z-index: 1;
+}
+
+.historia-punto {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: #173F35;
+    border: 5px solid #EAF0E8;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.historia-tarjeta {
+    height: 100%;
+    padding: 30px;
+    border: 1px solid #E2EAE1;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 12px 35px rgba(23,63,53,.06);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.historia-tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 40px rgba(23,63,53,.12);
+}
+
+.historia-tarjeta h3 {
+    color: #173F35;
+    margin-top: 0;
+}
+
+/* 05 Y 06. MISIÓN Y VISIÓN */
+
+.mision-vision-institucional {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 35px 0 90px;
+}
+
+.tarjeta-filosofia {
+    position: relative;
+    padding: 45px;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: transform .3s ease;
+}
+
+.tarjeta-filosofia:hover {
+    transform: translateY(-6px);
+}
+
+.tarjeta-mision {
+    background: #173F35;
+}
+
+.tarjeta-vision {
+    background: #EAF0E8;
+}
+
+.tarjeta-mision h2,
+.tarjeta-mision p {
+    color: #ffffff;
+}
+
+.tarjeta-vision h2 {
+    color: #173F35;
+}
+
+.tarjeta-mision p {
+    color: rgba(255,255,255,.84);
+}
+
+.tarjeta-filosofia .etiqueta-seccion {
+    color: #A8B9A1;
+}
+
+.filosofia-simbolo {
+    margin: 28px 0 15px;
+    color: #A8B9A1;
+    font-size: 3rem;
+}
+
+.tarjeta-filosofia h2 {
+    font-family: Georgia, serif;
+    font-size: 2.3rem;
+    margin-bottom: 18px;
+}
+
+.filosofia-palabra {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 9px 15px;
+    border: 1px solid rgba(168,185,161,.5);
+    border-radius: 30px;
+    color: #A8B9A1;
+    font-size: .8rem;
+    letter-spacing: .5px;
+}
+
+/* 07. CULTURA */
+
+.cultura-institucional {
+    padding: 90px 3%;
+    border-radius: 28px;
+    background: linear-gradient(145deg, #173F35, #24594B);
+}
+
+.cultura-institucional .encabezado-institucional h2 {
+    color: #ffffff;
+}
+
+.cultura-institucional .encabezado-institucional p {
+    color: rgba(255,255,255,.8);
+}
+
+.cultura-institucional .etiqueta-seccion {
+    color: #A8B9A1;
+}
+
+.cultura-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.cultura-tarjeta {
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 18px;
+    background: rgba(255,255,255,.07);
+    transition: transform .3s ease, background .3s ease;
+}
+
+.cultura-tarjeta:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,.13);
+}
+
+.cultura-numero {
+    display: block;
+    margin-bottom: 25px;
+    color: #A8B9A1;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.cultura-tarjeta h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.cultura-tarjeta p {
+    color: rgba(255,255,255,.78);
+    font-size: .94rem;
+}
+
+.cultura-cierre {
+    max-width: 750px;
+    margin: 55px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,.2);
+    text-align: center;
+}
+
+.cultura-cierre p {
+    color: #ffffff;
+    font-family: Georgia, serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+}
+
+/* ADAPTACIÓN A TABLET Y MÓVIL */
+
+@media (max-width: 850px) {
+    .identidad-contenido,
+    .quienes-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .identidad-logo {
+        min-height: 200px;
+    }
+
+    .historia-linea {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .historia-linea::before {
+        top: 25px;
+        bottom: 25px;
+        left: 25px;
+        right: auto;
+        width: 2px;
+        height: auto;
+    }
+
+    .historia-paso {
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        gap: 15px;
+        align-items: start;
+    }
+
+    .historia-punto {
+        margin: 0;
+    }
+
+    .mision-vision-institucional {
+        grid-template-columns: 1fr;
+    }
+
+    .cultura-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .proyecto-completo {
+        padding: 55px 5%;
+    }
+
+    .identidad-proyecto,
+    .objetivo-institucional,
+    .quienes-destacado,
+    .tarjeta-filosofia {
+        padding: 28px;
+    }
+
+    .bloque-institucional {
+        padding: 70px 0;
+    }
+
+    .objetivo-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .cultura-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
