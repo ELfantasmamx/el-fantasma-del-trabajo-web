@@ -1181,3 +1181,91 @@ footer p + p {
     }
 }
 
+/* ==========================================
+   LINEAS DECORATIVAS — EL FANTASMA DEL TRABAJO
+   ========================================== */
+
+#proyecto,
+#bienestar,
+#autoconocimiento,
+#cuestionario-rapido,
+#cuestionario-profundo,
+#explorar {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Ondas superiores */
+#proyecto::before,
+#bienestar::before,
+#autoconocimiento::before,
+#cuestionario-rapido::before,
+#cuestionario-profundo::before,
+#explorar::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M-20 35 C220 5 340 75 580 38 S950 5 1180 40 S1370 65 1460 25' fill='none' stroke='%23397466' stroke-width='2' opacity='.35'/%3E%3Cpath d='M-20 50 C200 20 390 85 620 50 S1000 20 1220 52 S1380 70 1460 42' fill='none' stroke='%23A8B9A1' stroke-width='2' opacity='.65'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Ondas inferiores */
+#proyecto::after,
+#bienestar::after,
+#autoconocimiento::after,
+#cuestionario-rapido::after,
+#cuestionario-profundo::after,
+#explorar::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 55px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M-20 45 C220 75 390 5 620 42 S1000 75 1220 38 S1380 10 1460 50' fill='none' stroke='%23397466' stroke-width='2' opacity='.30'/%3E%3Cpath d='M-20 60 C200 85 390 20 620 55 S1000 80 1220 48 S1380 25 1460 60' fill='none' stroke='%23A8B9A1' stroke-width='2' opacity='.55'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Mantener el contenido por encima de las líneas */
+#proyecto > *,
+#bienestar > *,
+#autoconocimiento > *,
+#cuestionario-rapido > *,
+#cuestionario-profundo > *,
+#explorar > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Reducir decoración en pantallas pequeñas */
+@media (max-width: 600px) {
+    #proyecto::before,
+    #bienestar::before,
+    #autoconocimiento::before,
+    #cuestionario-rapido::before,
+    #cuestionario-profundo::before,
+    #explorar::before,
+    #proyecto::after,
+    #bienestar::after,
+    #autoconocimiento::after,
+    #cuestionario-rapido::after,
+    #cuestionario-profundo::after,
+    #explorar::after {
+        height: 35px;
+        opacity: .8;
+    }
+}
+
