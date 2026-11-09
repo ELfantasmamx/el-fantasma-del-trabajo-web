@@ -1753,4 +1753,6 @@ footer p + p {
         grid-template-columns: 1fr;
     }
 }
-
+.tarjeta-mision .filosofia-palabra {
+    color: #173F35 !important;
+}
