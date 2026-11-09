@@ -1759,3 +1759,7 @@ footer p + p {
 .tarjeta-mision .filosofia-palabra {
     color: #FFFFFF !important;
 }
+.tarjeta-mision h3,
+.tarjeta-mision .filosofia-palabra {
+    color: #FFFFFF !important;
+}
